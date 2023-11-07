@@ -10,6 +10,10 @@
     "Ibu",
     "programming language"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/v420v/vscode-ibu"
+  },
   "engines": {
     "vscode": "^1.83.0"
   },
