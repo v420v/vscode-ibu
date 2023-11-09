@@ -15,6 +15,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#chars"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -65,7 +68,7 @@
 		},
 		"include-decl": {
 			"name": "meta.definition.include.ibu",
-			"match": "^\\s*(#)(\\s*include)(.)",
+			"match": "^\\s*(#)(\\s*include)(\\s*\\w+)",
 			"captures": {
 				"1": {
 					"name": "keyword.control"
@@ -74,7 +77,7 @@
 					"name": "keyword.control"
 				},
 				"3": {
-					"name": "strings"
+					"name": "string.quoted.double.ibu"
 				}
 			}
 		},
@@ -127,7 +130,7 @@
 			"patterns": [
 				{
 					"name": "storage.type.ibu",
-					"match": "\\b(i(8|16|32|64|128)|u(8|16|32|64|128)|bool)\\b"
+					"match": "\\b(i(8|16|32|64|128)|u(0|8|16|32|64|128)|bool)\\b"
 				}
 			]
 		},
@@ -135,6 +138,17 @@
 			"name": "string.quoted.double.ibu",
 			"begin": "\"",
 			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ibu",
+					"match": "\\\\."
+				}
+			]
+		},
+		"chars": {
+			"name": "constant.character",
+			"begin": "'",
+			"end": "'",
 			"patterns": [
 				{
 					"name": "constant.character.escape.ibu",
