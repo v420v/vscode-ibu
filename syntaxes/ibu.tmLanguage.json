@@ -68,7 +68,7 @@
 		},
 		"include-decl": {
 			"name": "meta.definition.include.ibu",
-			"match": "^\\s*(#)(\\s*include)(\\s*\\w+)",
+			"match": "^\\s*(#)(\\s*include)(.)",
 			"captures": {
 				"1": {
 					"name": "keyword.control"
