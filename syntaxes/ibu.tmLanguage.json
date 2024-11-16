@@ -1,0 +1,207 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Ibu programming language",
+	"patterns": [
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#chars"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#reserved-words"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#define-decl"
+		},
+		{
+			"include": "#include-decl"
+		},
+		{
+			"include": "#function-call"
+		},
+		{
+			"include": "#struct"
+		}
+	],
+	"repository": {
+		"function-call": {
+			"name": "meta.support.function.ibu",
+			"match": "(\\w+)(?=\\s*\\()",
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"match": "\\w+",
+							"name": "entity.name.function"
+						}
+					]
+				}
+			}
+		},
+		"struct": {
+			"name": "meta.definition.struct.ibu",
+			"match": "^\\s*(struct)\\s+(?:\\w+\\.)?(\\w*)",
+			"captures": {
+				"1": {
+					"name": "storage.type.struct.ibu"
+				},
+				"2": {
+					"name": "entity.name.struct.ibu"
+				}
+			}
+		},
+		"include-decl": {
+			"name": "meta.definition.include.ibu",
+			"match": "^\\s*(#)(\\s*include)(.)",
+			"captures": {
+				"1": {
+					"name": "keyword.control"
+				},
+				"2": {
+					"name": "keyword.control"
+				},
+				"3": {
+					"name": "string.quoted.double.ibu"
+				}
+			}
+		},
+		"define-decl": {
+			"name": "meta.definition.define.ibu",
+			"match": "^\\s*(#)(\\s*define)(\\s*\\w+)",
+			"captures": {
+				"1": {
+					"name": "keyword.control"
+				},
+				"2": {
+					"name": "keyword.control"
+				},
+				"3": {
+					"name": "entity.name.function"
+				}
+			}
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.ibu",
+					"match": "(?<!\\w)[0-9]+"
+				},
+				{
+					"name": "constant.numeric.float.ibu",
+					"match": "([0-9]+(_?))+(\\.)([0-9]+)"
+				},
+				{
+					"name": "constant.numeric.binary.ibu",
+					"match": "(?:0b)(?:(?:[0-1]+)(?:_?))+"
+				},
+				{
+					"name": "constant.numeric.octal.ibu",
+					"match": "(?:0o)(?:(?:[0-7]+)(?:_?))+"
+				},
+				{
+					"name": "constant.numeric.hex.ibu",
+					"match": "(?:0x)(?:(?:[0-9a-fA-F]+)(?:_?))+"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ibu",
+				"match": "\\b(func|let|struct|if|else|while|goto|return|sizeof|typesize)\\b"
+			}]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.ibu",
+					"match": "\\b(i(8|16|32|64|128)|u(0|8|16|32|64|128)|bool)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.ibu",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ibu",
+					"match": "\\\\."
+				}
+			]
+		},
+		"chars": {
+			"name": "constant.character",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ibu",
+					"match": "\\\\."
+				}
+			]
+		},
+		"reserved-words": {
+			"match": "\\b(nil|true|false)\\b",
+			"name": "entity.name.function.member.ibu"
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.ibu",
+					"begin": "//",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.begin.ibu"
+						}
+					},
+					"end": "$"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "(?<![\\w$])(sizeof)(?![\\w$])",
+					"name": "keyword.operator.sizeof.ibu"
+				},
+				{
+					"match": "--",
+					"name": "keyword.operator.decrement.ibu"
+				},
+				{
+					"match": "\\+\\+",
+					"name": "keyword.operator.increment.ibu"
+				},
+				{
+					"match": "%|\\*|/|-|\\+|&|\\.\\.\\.",
+					"name": "keyword.operator.ibu"
+				},
+				{
+					"name": "keyword.operator.relation.ibu",
+					"match": "(\\!|\\=\\=|\\!\\=|\\>|\\<|\\>\\=|\\<\\=|\\|\\||\\&\\&)"
+				},
+				{
+					"name": "keyword.operator.assignment.ibu",
+					"match": "(\\=)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.ibu"
+}

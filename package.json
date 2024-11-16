@@ -1,0 +1,48 @@
+{
+  "name": "ibu",
+  "displayName": "Ibu",
+  "description": "Ibu programming language syntax highlighter",
+  "version": "0.0.1",
+  "publisher": "ibuki",
+  "keywords": [
+    "syntax highlighter",
+    "The Ibu programming language",
+    "Ibu",
+    "programming language"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/v420v/vscode-ibu"
+  },
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ibu",
+        "aliases": [
+          "Ibu",
+          "ibu"
+        ],
+        "extensions": [
+          ".ibu"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ibu",
+        "scopeName": "source.ibu",
+        "path": "./syntaxes/ibu.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
