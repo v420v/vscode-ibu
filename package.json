@@ -2,7 +2,7 @@
   "name": "ibu-syntax-highlighter",
   "displayName": "Ibu Programming Language Syntax Highlighter",
   "description": "Syntax highlighting for the Ibu programming language",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "ibu",
   "keywords": [
     "syntax highlighter",
