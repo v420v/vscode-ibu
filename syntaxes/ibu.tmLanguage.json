@@ -123,7 +123,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ibu",
-				"match": "\\b(func|let|struct|if|else|while|for|goto|return|sizeof|typesize)\\b"
+				"match": "\\b(func|let|struct|switch|case|default|if|else|while|for|goto|return|sizeof|typesize)\\b"
 			}]
 		},
 		"types": {
